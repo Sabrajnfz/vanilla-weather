@@ -26,9 +26,141 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
-    <div class="container">
-      <div class="weather-box"></div>
+  <body class="root">
+    <div class="application">
+      <div class="container">
+        <div class="weather">
+          <a><img src="images/logo.png" class="logo" /></a>
+          <br />
+          <form>
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="search"
+                  placeholder="Enter a city"
+                  class="form-control search-input"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="search"
+                  class="btnsearch btn-primary w-100"
+                />
+              </div>
+              <div class="col-3">
+                <button
+                  class="btncurrent btn-success w-100"
+                  id="current-location-button"
+                >
+                  Current
+                </button>
+              </div>
+            </div>
+          </form>
+          <div class="weather-info">
+            <div class="row">
+              <div class="col-6">
+                <h1>Sanfrancisco</h1>
+                <ul>
+                  <li><span>Friday 05:00 </span> , Partly Cloudy</li>
+                  <li>
+                    Humidity:<strong> 78% </strong> wind:<strong>
+                      3.65km/h
+                    </strong>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-8">
+                <div class="temperature-container d-flex justify-content-end">
+                  <canvas height="52" width="52"> /></canvas>
+                  <div class="teperature">11</div>
+                  <div class="unit">
+                    <a href="#" id="Celecius"> °C </a>
+                    |
+                    <a href="#" id="Farenheit"> °F </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="WeatherForecast row">
+            <div class="col">
+              <div class="WeatherForecastPreview">
+                <div class="forecast-time">Fri</div>
+                <canvas width="38" height="38"></canvas>
+                <div class="forecast-temperature">
+                  <span class="forecast-temperature-max">10°</span
+                  ><span class="forecast-temperature-min">6°</span>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="WeatherForecastPreview">
+                <div class="forecast-time">Sat</div>
+                <canvas width="38" height="38"></canvas>
+                <div class="forecast-temperature">
+                  <span class="forecast-temperature-max">12°</span
+                  ><span class="forecast-temperature-min">10°</span>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="WeatherForecastPreview">
+                <div class="forecast-time">Sun</div>
+                <canvas width="38" height="38"></canvas>
+                <div class="forecast-temperature">
+                  <span class="forecast-temperature-max">19°</span
+                  ><span class="forecast-temperature-min">9°</span>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="WeatherForecastPreview">
+                <div class="forecast-time">Mon</div>
+                <canvas width="38" height="38"></canvas>
+                <div class="forecast-temperature">
+                  <span class="forecast-temperature-max">10°</span
+                  ><span class="forecast-temperature-min">8°</span>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="WeatherForecastPreview">
+                <div class="forecast-time">Tue</div>
+                <canvas width="38" height="38"></canvas>
+                <div class="forecast-temperature">
+                  <span class="forecast-temperature-max">15°</span
+                  ><span class="forecast-temperature-min">6°</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <footer>
+            This project was coded by
+            <a
+              href="https://www.shecodes.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Sabra Jan</a
+            >
+            and is
+            <a
+              href="https://github.com/shecodesio/weather"
+              target="_blank"
+              rel="noopener noreferrer"
+              >open-sourced on GitHub</a
+            >
+            and
+            <a
+              href="https://shecodes-weather.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >hosted on Netlify</a
+            >
+          </footer>
+        </div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
