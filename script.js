@@ -1,4 +1,3 @@
-
 //Add a search engine
 //display the current date and time
 
@@ -35,25 +34,28 @@ let search = document.querySelector("#search-form");
 search.addEventListener("click", searchCity);
 
 //unit conversion
-function cToF(response) {
-  let cTemp = Math.round(response.data.main.temp);
-  let cToFahr = (cTemp * 9) / 5 + 32;
-  // let message = cTemp + "\xB0C is " + cToFahr + " \xB0F.";
 
-  document.querySelector("#tempertureDegree").innerHTML = cToFahr;
+function cToF(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#tempertureDegree");
+  Celeciuslink.classList.add("active");
+  farenheitlink.classList.remove("active");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
-let celesious = document.querySelector("a#Celecius");
-celesious.addEventListener("click", cToF);
+let Celeciuslink = document.querySelector("a#Celecius-link");
+Celeciuslink.addEventListener("click", cToF);
 
-function fToC(response) {
-  let fTemp = Math.round(response.data.main.temp);
-  let fToCel = ((fTemp - 32) * 5) / 9;
-  // let message = fTemp + "\xB0F is " + fToCel + "\xB0C.";
+function fToC(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#tempertureDegree");
+  Celeciuslink.classList.remove("active");
+  farenheitlink.classList.add("active");
+  let farenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
 
-  document.querySelector("#tempertureDegree").innerHTML = fToCel;
+  temperatureElement.innerHTML = Math.round(farenheitTemperature);
 }
-let farenheit = document.querySelector("a#Farenheit");
-farenheit.addEventListener("click", fToC);
+let farenheitlink = document.querySelector("a#Farenheit-link");
+farenheitlink.addEventListener("click", fToC);
 
 //display the name of the city
 function showTemperatre(response) {
@@ -69,12 +71,7 @@ function showTemperatre(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
 
-  // document.querySelector("#temp-min").innerHTML = Math.round(
-  //   response.data.main.temp_min
-  // );
-  // document.querySelector("#temp-max").innerHTML = Math.round(
-  //   response.data.main.temp_max
-  // );
+  celsiusTemperature = response.data.main.temp;
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
@@ -113,6 +110,9 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
+
+let celsiusTemperature = null;
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", citySubmit);
 

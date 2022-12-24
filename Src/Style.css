@@ -97,7 +97,7 @@
   font-weight: 200;
 }
 .weather li strong {
-  color: red;
+  color: #885df1;
   opacity: 70%;
 }
 .Weather canvas {
@@ -137,7 +137,7 @@
   font-style: normal;
   font-size: 18px;
   line-height: 1.5;
-  color: red;
+  color: #885df1;
   font-weight: bold;
 }
 
@@ -160,5 +160,22 @@ footer {
 }
 
 footer a {
+  color: #885df1;
+}
+
+.temperature-container .active {
+  color: #885df1;
+  cursor: default;
+}
+.temperature-container .active:hover {
+  text-decoration: none;
+}
+.temperature-container a {
+  text-decoration: none;
+  color: black;
+}
+.temperature-container a:hover {
+  text-decoration: none;
+  font-weight: bolder;
   color: #885df1;
 }
