@@ -33,14 +33,14 @@
         <div class="weather">
           <a><img src="images/logo.png" class="logo" /></a>
           <br />
-          <form>
+          <form id="search-form">
             <div class="row">
               <div class="col-6">
                 <input
                   type="search"
                   placeholder="Enter a city"
-                  id="city-input"
                   autofocus="on"
+                  id="city-input"
                   class="form-control search-input"
                 />
               </div>
@@ -48,7 +48,6 @@
                 <input
                   type="submit"
                   value="search"
-                  id="search-form"
                   class="btnsearch btn-primary w-100"
                 />
               </div>
@@ -65,25 +64,24 @@
           <div class="weather-info">
             <div class="row">
               <div class="col-6">
-                <h1 id="city">London</h1>
+                <h1 id="city"></h1>
                 <ul>
                   <li>
                     <span id="realDate">Friday 05:00 </span> ,
                     <span id="description"> Partly Cloudy</span>
                   </li>
                   <li>
-                    Humidity:<strong id="humidity"> 78% </strong> wind:<strong
-                      id="wind"
-                    >
-                      3.65km/h
-                    </strong>
+                    Humidity:<strong id="humidity"> </strong>
+                    <strong>%</strong>
+                    wind:<strong id="wind"> </strong>
+                    <strong>km/h</strong>
                   </li>
                 </ul>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-8">
                 <div class="temperature-container d-flex justify-content-end">
                   <canvas height="52" width="52"> /></canvas>
-                  <div class="teperature" id="tempertureDegree">11</div>
+                  <div class="temperature" id="tempertureDegree">11</div>
                   <div class="unit">
                     <a href="#" id="Celecius"> °C </a>
                     |
