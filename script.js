@@ -33,6 +33,36 @@ dateElement.innerHTML = formatDate(currentTime);
 let search = document.querySelector("#search-form");
 search.addEventListener("click", searchCity);
 
+//forcast weather
+
+function showForcast() {
+  let forcastElement = document.querySelector("#forcast");
+
+  let forcastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forcastHTML =
+      forcastHTML +
+      `
+   
+              <div class="col-2">
+                <div class="forecast-time">${day}</div>
+                <img src="" id="" />
+                <div class="forecast-temperature">
+                  <span class="forecast-temperature-max">10</span>°<span
+                    class="forecast-temperature-min"
+                    >8</span
+                  >°
+                </div>
+              </div>
+            
+  `;
+  });
+
+  forcastHTML = forcastHTML + `</div>`;
+  forcastElement.innerHTML = forcastHTML;
+}
+
 //unit conversion
 
 function cToF(event) {
@@ -120,3 +150,4 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("paris");
+showForcast();

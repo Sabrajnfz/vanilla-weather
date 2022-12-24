@@ -118,6 +118,7 @@
 }
 
 .WeatherForecast {
+  display: block;
   text-align: center;
   top: 150px;
   border: 1px solid rgba(39, 33, 66, 0.4);
