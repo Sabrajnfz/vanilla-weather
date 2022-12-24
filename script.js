@@ -1,3 +1,4 @@
+
 //Add a search engine
 //display the current date and time
 
@@ -33,20 +34,26 @@ dateElement.innerHTML = formatDate(currentTime);
 let search = document.querySelector("#search-form");
 search.addEventListener("click", searchCity);
 
-//Display a fake temperature in Celsius
-function showCelesious() {
-  let cel = document.querySelector("span#tempertureDegree");
-  cel.innerHTML = "20";
+//unit conversion
+function cToF(response) {
+  let cTemp = Math.round(response.data.main.temp);
+  let cToFahr = (cTemp * 9) / 5 + 32;
+  // let message = cTemp + "\xB0C is " + cToFahr + " \xB0F.";
+
+  document.querySelector("#tempertureDegree").innerHTML = cToFahr;
 }
 let celesious = document.querySelector("a#Celecius");
-celesious.addEventListener("click", showCelesious);
+celesious.addEventListener("click", cToF);
 
-function showFarenheit() {
-  let cel = document.querySelector("span#tempertureDegree");
-  cel.innerHTML = "65";
+function fToC(response) {
+  let fTemp = Math.round(response.data.main.temp);
+  let fToCel = ((fTemp - 32) * 5) / 9;
+  // let message = fTemp + "\xB0F is " + fToCel + "\xB0C.";
+
+  document.querySelector("#tempertureDegree").innerHTML = fToCel;
 }
 let farenheit = document.querySelector("a#Farenheit");
-farenheit.addEventListener("click", showFarenheit);
+farenheit.addEventListener("click", fToC);
 
 //display the name of the city
 function showTemperatre(response) {
@@ -61,6 +68,25 @@ function showTemperatre(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+
+  // document.querySelector("#temp-min").innerHTML = Math.round(
+  //   response.data.main.temp_min
+  // );
+  // document.querySelector("#temp-max").innerHTML = Math.round(
+  //   response.data.main.temp_max
+  // );
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  let iconElementFri = document.querySelector("#iconFri");
+  iconElementFri.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchCity(city) {
